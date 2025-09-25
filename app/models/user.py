@@ -9,6 +9,7 @@ class User(Base):
     __tablename__ = "users"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, unique=True, nullable=False)
+    account = Column(String(255), unique=True, nullable=True)
     email = Column(String(255), unique=True, index=True, nullable=False)
     hashed_password = Column(String(255), nullable=True)  # Google 登入的 user 可為 None
     is_active = Column(Boolean, default=True)
